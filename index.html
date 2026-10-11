@@ -1,0 +1,1010 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>김영균 · CRM & Growth</title>
+<meta name="description" content="CRM 마케터 8년. 생애주기 CRM 운영과 AI로 일하는 방식을 바꾼 프로젝트.">
+<meta property="og:title" content="김영균 · CRM & Growth">
+<meta property="og:description" content="푸시·인앱·이메일·카카오톡으로 8년간 고객 생애주기를 운영한 CRM 마케터. 지금은 AI로 마케팅 팀이 일하는 방식을 바꾸는 쪽으로 넓히는 중.">
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+:root {
+  --bg: #FFFFFF; --surface: #F3F5FC; --surface-2: #E9ECFA;
+  --ink: #0F1330; --body: #363B5C; --muted: #7A809E; --line: #DCE0F0; --line-soft: #EBEEF8;
+  --accent: #2F43F2; --accent-ink: #FFFFFF; --accent-soft: #E4E8FF; --accent-deep: #1D2BB8;
+  --warn: #F2602F;
+}
+:root[data-theme="dark"] {
+  --bg: #0D1024; --surface: #151A38; --surface-2: #1D2347;
+  --ink: #F1F2FA; --body: #C3C7DF; --muted: #868CB0; --line: #2A3059; --line-soft: #1F254A;
+  --accent: #7F8EFF; --accent-ink: #0D1024; --accent-soft: #232C66; --accent-deep: #AEB8FF;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body {
+  margin: 0; background: var(--bg); color: var(--body);
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Segoe UI", sans-serif;
+  font-size: 1rem; line-height: 1.7; word-break: keep-all; overflow-wrap: break-word; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+img { max-width: 100%; height: auto; display: block; }
+.wrap { max-width: 68rem; margin-inline: auto; padding-inline: clamp(1rem, 4vw, 2.5rem); }
+h1, h2, h3 { color: var(--ink); margin: 0; letter-spacing: -.02em; line-height: 1.25; }
+strong, b { color: var(--ink); font-weight: 700; }
+
+/* ---------- top nav ---------- */
+.top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft); }
+.top .wrap { display: flex; align-items: center; gap: 1rem; height: 3.5rem; }
+.brand { font-weight: 800; color: var(--ink); letter-spacing: -.02em; white-space: nowrap; }
+.brand:hover { text-decoration: none; color: var(--accent); }
+.menu { display: flex; gap: .25rem; margin-left: auto; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.menu::-webkit-scrollbar { display: none; }
+.menu a { color: var(--muted); font-size: .9rem; font-weight: 600; padding: .35rem .65rem; border-radius: 999px; white-space: nowrap; }
+.menu a:hover { color: var(--ink); background: var(--surface); text-decoration: none; }
+.menu a.on { color: var(--accent); background: var(--accent-soft); }
+.theme { appearance: none; border: 1px solid var(--line); background: var(--bg); color: var(--ink); width: 2rem; height: 2rem; border-radius: 999px; cursor: pointer; font-size: .95rem; line-height: 1; flex: none; }
+.theme:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ---------- hero ---------- */
+.hero { padding-block: clamp(2.5rem, 7vw, 5.5rem) clamp(2rem, 5vw, 3.5rem); display: grid; gap: 2.5rem; align-items: center; }
+@media (min-width: 56rem) { .hero { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: clamp(2rem, 6vw, 5rem); } }
+.hero .who { display: flex; align-items: center; gap: .85rem; margin-bottom: 1.5rem; }
+.avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-weight: 800; font-size: .95rem; }
+.who .nm { color: var(--ink); font-weight: 800; font-size: 1.05rem; }
+.who .rl { color: var(--muted); font-size: .9rem; }
+.hero h1 { font-size: clamp(1.45rem, 2.9vw, 2.15rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.35; max-width: 26ch; }
+.hero h1 mark { background: none; color: var(--accent); }
+.hero .now { margin: 1.5rem 0 0; padding: .9rem 1.1rem 1rem; background: var(--surface); border-radius: 12px; color: var(--body); font-size: .95rem; line-height: 1.6; display: grid; grid-template-columns: auto 1fr; gap: .9rem; align-items: start; max-width: 40rem; }
+.hero .now b { color: var(--accent); font-size: .8rem; padding-top: .2rem; }
+.hero .now ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .25rem; }
+.hero .links { margin: 1.25rem 0 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.btn { display: inline-flex; align-items: center; gap: .35rem; border-radius: 10px; padding: .6rem 1.05rem; font-size: .92rem; font-weight: 700; color: var(--ink); background: var(--surface-2); box-shadow: inset 0 -2px 0 rgba(15,19,48,.08); transition: transform .12s ease, background .12s ease; }
+.btn:hover { text-decoration: none; background: var(--accent-soft); color: var(--accent-deep); transform: translateY(-1px); }
+.btn .ext { color: var(--muted); font-size: .85em; }
+.btn.pri { background: var(--accent); color: var(--accent-ink); box-shadow: 0 6px 16px -8px var(--accent), inset 0 -2px 0 rgba(0,0,0,.18); }
+.btn.pri:hover { background: var(--accent-deep); color: #fff; }
+/* segment chips */
+.seg { margin: 1.1rem 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: .45rem; }
+.seg-q { color: var(--muted); font-size: .85rem; font-weight: 600; margin-right: .2rem; }
+.seg button { appearance: none; font: inherit; font-size: .85rem; font-weight: 700; color: var(--body); background: var(--bg); border: 1.5px solid var(--line); border-radius: 999px; padding: .35rem .85rem; cursor: pointer; transition: border-color .12s, color .12s, background .12s; }
+.seg button:hover { border-color: var(--accent); color: var(--accent); }
+.seg button.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.seg-note { flex-basis: 100%; margin: .25rem 0 0; color: var(--muted); font-size: .85rem; min-height: 1.2em; }
+.seg-note b { color: var(--accent); }
+/* stacked real push cards */
+.stack { position: relative; margin: 0; display: grid; gap: .75rem; }
+.stack img { border-radius: 14px; box-shadow: 0 12px 40px -18px rgba(15,19,48,.45); border: 1px solid var(--line-soft); }
+@media (min-width: 56rem) {
+  .stack { height: 17.5rem; max-width: 19rem; width: 100%; justify-self: end; }
+  .stack img { position: absolute; width: 86%; left: 0; transition: transform .25s ease; }
+  .stack img:nth-child(1) { top: 0; left: 7%; transform: rotate(-2deg); z-index: 1; }
+  .stack img:nth-child(2) { top: 5.6rem; left: 12%; transform: rotate(1.5deg); z-index: 3; width: 88%; }
+  .stack img:nth-child(3) { top: 14.2rem; left: 0; transform: rotate(-1deg); z-index: 2; }
+  .stack:hover img { transform: rotate(0); }
+}
+.stack figcaption { color: var(--muted); font-size: .8rem; }
+@keyframes arrive { 0% { opacity: 0; translate: 0 -28px; } 70% { opacity: 1; translate: 0 4px; } 100% { opacity: 1; translate: 0 0; } }
+.stack img { animation: arrive .55s cubic-bezier(.2,.8,.2,1) both; }
+.stack img:nth-child(1) { animation-delay: .15s; } .stack img:nth-child(3) { animation-delay: .55s; } .stack img:nth-child(2) { animation-delay: .95s; }
+@media (prefers-reduced-motion: reduce) { .stack img { animation: none; } }
+@media (max-width: 55.99rem) { .stack img:nth-child(n+2) { display: none; } }
+@media (min-width: 56rem) { .stack figcaption { position: absolute; bottom: -1.5rem; left: 0; } }
+
+/* ---------- timeline (monthly gantt, 2018.1–2027.2 = 110 cols) ---------- */
+.tl { padding-block: 1rem 3rem; }
+.gantt { display: grid; gap: .45rem; }
+.g-years, .g-row { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 1rem; align-items: center; }
+.g-years { grid-template-columns: 11rem minmax(0, 1fr); }
+.g-years::before { content: ""; }
+.g-years { display: grid; }
+.g-ys > span { font-size: .72rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.g-years { grid-template-areas: none; }
+.g-years { position: relative; }
+.g-years > span:first-child { margin-left: 0; }
+.g-ys { display: grid; grid-template-columns: repeat(110, 1fr); }
+.g-l b { display: block; color: var(--ink); font-weight: 800; font-size: .9rem; line-height: 1.3; }
+.g-l span { display: block; color: var(--muted); font-size: .74rem; line-height: 1.3; }
+.g-t { display: grid; grid-template-columns: repeat(110, 1fr); height: 1.35rem; align-items: center;
+  background-image: repeating-linear-gradient(to right, var(--line-soft) 0 1px, transparent 1px calc(100% / 110 * 12)); background-position: 0 0; }
+.g-b { display: block; height: .85rem; border-radius: 4px; font-size: .68rem; line-height: .85rem; font-weight: 700; color: var(--accent-ink); padding-left: .4rem; white-space: nowrap; overflow: hidden; }
+.g-b.soft { background: var(--accent-soft); } .g-b.mid { background: color-mix(in srgb, var(--accent) 55%, var(--accent-soft)); border-radius: 4px 0 0 4px; }
+.g-b.full { background: var(--accent); border-radius: 0 4px 4px 0; } .g-b.edu { background: var(--surface-2); border: 1px solid var(--line); } .g-b.ink { background: var(--ink); }
+@media (max-width: 47.99rem) {
+  .g-years, .g-row { grid-template-columns: 1fr; gap: .2rem; }
+  .g-years::before { display: none; }
+  .g-row { margin-top: .4rem; }
+  .g-b { font-size: 0; }
+  .g-ys > span:nth-child(even) { visibility: hidden; }
+}
+
+/* ---------- sections ---------- */
+.sec { padding-block: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--line-soft); }
+.sec-h { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.sec-h h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -.03em; position: relative; padding-top: .9rem; }
+.sec-h h2::before { content: ""; position: absolute; top: 0; left: 0; width: 2rem; height: 4px; border-radius: 2px; background: var(--accent); }
+.sec-h p { margin: 0; color: var(--muted); }
+
+/* flow (운영 체계) */
+.flow { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.9rem 1.75rem; }
+@media (min-width: 56rem) { .flow { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.flow li { position: relative; background: var(--surface); border-radius: 14px; padding: 1rem 1.05rem 1.05rem; display: grid; gap: .3rem; align-content: start; }
+.flow li.ai { background: var(--accent); color: var(--accent-ink); }
+.flow h3 { font-size: .95rem; font-weight: 800; }
+.flow li.ai h3, .flow li.ai p, .flow li.ai small { color: var(--accent-ink); }
+.flow p { margin: 0; font-size: .875rem; line-height: 1.55; }
+.flow small { font-size: .75rem; color: var(--muted); }
+.flow li.ai small { opacity: .8; }
+.flow li + li::before { content: ""; position: absolute; width: 10px; height: 10px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); }
+.flow li + li::before { left: 50%; top: -1.3rem; transform: translateX(-50%) rotate(45deg); }
+@media (min-width: 56rem) { .flow li + li::before { left: -1.2rem; top: 1.15rem; transform: rotate(-45deg); } }
+.flow-back { margin: .9rem 0 0; text-align: right; color: var(--accent); font-weight: 700; font-size: .875rem; }
+.cap { color: var(--muted); font-size: .8rem; margin: .5rem 0 0; }
+
+/* two-col blocks */
+.two { display: grid; gap: 1.75rem; align-items: start; }
+@media (min-width: 56rem) { .two { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 2.5rem; } }
+.shots { margin: 0; display: grid; gap: .6rem; }
+.shots.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.shots img { border-radius: 12px; border: 1px solid var(--line-soft); background: var(--surface); }
+.shots figcaption { grid-column: 1 / -1; color: var(--muted); font-size: .8rem; }
+
+/* tables */
+.tablewrap { overflow-x: auto; margin: 0 0 1rem; }
+table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+th, td { text-align: left; padding: .6rem .9rem .6rem 0; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; font-size: .78rem; border-bottom-color: var(--line); }
+td:first-child { color: var(--ink); font-weight: 700; white-space: nowrap; }
+.two td:first-child, table.spec td:first-child { white-space: normal; min-width: 6rem; }
+td:nth-child(3) a { white-space: nowrap; }
+@media (max-width: 47.99rem) { table.spec, .two table { min-width: 30rem; } }
+
+/* AX grid */
+.ax { display: grid; gap: 1rem; }
+@media (min-width: 48rem) { .ax { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ax a.card { display: grid; gap: .4rem; padding: 1.1rem 1.2rem 1.2rem; background: var(--surface); border-radius: 14px; color: var(--body); border: 1px solid transparent; }
+.ax a.card:hover { text-decoration: none; border-color: var(--accent); }
+.ax .card h3 { font-size: 1.05rem; font-weight: 800; }
+.ax .card p { margin: 0; font-size: .92rem; line-height: 1.6; }
+.ax .card small { color: var(--accent); font-weight: 700; font-size: .8rem; }
+.code { margin: 1.25rem 0 0; padding: 1rem 1.1rem; overflow-x: auto; background: var(--ink); color: #D8DCF3; border-radius: 14px; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .76rem; line-height: 1.65; white-space: pre; word-break: normal; }
+:root[data-theme="dark"] .code { background: #080A1A; }
+.code .c { color: #8A92BD; } .code .k { color: #9FB0FF; font-weight: 700; }
+
+/* ---------- collapsible projects ---------- */
+.proj-tools { display: flex; justify-content: flex-end; margin: -.5rem 0 .75rem; }
+.proj-tools button { appearance: none; border: 1px solid var(--line); background: var(--bg); color: var(--body); border-radius: 999px; padding: .35rem .85rem; font: inherit; font-size: .85rem; font-weight: 600; cursor: pointer; }
+.proj-tools button:hover { border-color: var(--accent); color: var(--accent); }
+.proj { border-top: 1px solid var(--line-soft); }
+.proj:last-of-type { border-bottom: 1px solid var(--line-soft); }
+.proj summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 2.5rem minmax(0, 1fr) auto 1.5rem; align-items: center; gap: .75rem; padding: 1rem 0; }
+.proj summary::-webkit-details-marker { display: none; }
+.proj summary:hover .pt { color: var(--accent); }
+.pn { color: var(--muted); font-weight: 700; font-variant-numeric: tabular-nums; font-size: .9rem; }
+.pt { color: var(--ink); font-weight: 700; font-size: 1.05rem; letter-spacing: -.01em; }
+.po { color: var(--muted); font-size: .85rem; white-space: nowrap; }
+.po em { font-style: normal; margin-left: .5rem; padding: .15rem .5rem; border-radius: 999px; background: var(--surface); color: var(--body); font-size: .75rem; font-weight: 600; }
+.chev { width: 9px; height: 9px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); justify-self: center; transition: transform .2s ease; }
+.proj[open] .chev { transform: rotate(-135deg); }
+@media (max-width: 47.99rem) { .proj summary { grid-template-columns: 2rem minmax(0, 1fr) 1.25rem; } .po { display: none; } }
+.pbody { padding: 0 0 2rem 3.25rem; }
+@media (max-width: 47.99rem) { .pbody { padding-left: 0; } }
+.pperiod { margin: 0 0 1rem; color: var(--muted); font-size: .9rem; }
+.prose { max-width: 66ch; }
+.prose .lede { display: block; margin: 1.25rem 0 .35rem; font-size: .8rem; font-weight: 700; color: var(--accent); }
+.prose h3 { font-size: 1.1rem; font-weight: 800; margin: 1.75rem 0 .75rem; }
+.bullets { margin: 0 0 1rem; padding: 0; list-style: none; display: grid; gap: .6rem; }
+.bullets li { padding-left: 1.1rem; position: relative; }
+.bullets li::before { content: ""; position: absolute; left: 0; top: .72em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.result { margin: 1.25rem 0; color: var(--ink); font-weight: 700; font-size: 1.05rem; }
+.takeaway { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--line-soft); }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem 1.75rem; margin-top: 1rem; font-size: .85rem; color: var(--muted); }
+.meta span b { color: var(--ink); font-size: .75rem; margin-right: .4rem; }
+
+/* ---------- CSS visuals ---------- */
+.vis { margin: 0 0 1.5rem; padding: 1.1rem 1.2rem; background: var(--surface); border-radius: 14px; }
+.vis figcaption { color: var(--muted); font-size: .8rem; margin-top: .75rem; }
+.ba { display: grid; grid-template-columns: 4rem minmax(0, 1fr); gap: .75rem; align-items: center; }
+.ba + .ba { margin-top: .6rem; }
+.ba-k { font-size: .8rem; font-weight: 700; color: var(--muted); }
+.chain { display: flex; flex-wrap: wrap; gap: .6rem 1.7rem; align-items: center; }
+.chain i { font-style: normal; font-size: .85rem; font-weight: 600; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: .3rem .6rem; position: relative; }
+.chain i + i::before { content: "→"; position: absolute; left: -1.3rem; color: var(--muted); font-weight: 400; }
+.chain i.slow { background: repeating-linear-gradient(135deg, var(--surface-2) 0 6px, var(--bg) 6px 12px); color: var(--muted); border-style: dashed; }
+.chain i.hot { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+
+.stages { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; }
+.stages li { display: grid; gap: .3rem; }
+.stages b { display: block; background: var(--accent-soft); color: var(--accent-deep); font-size: .82rem; font-weight: 800; padding: .4rem .5rem; text-align: center; }
+.stages li:first-child b { border-radius: 8px 0 0 8px; } .stages li:last-child b { border-radius: 0 8px 8px 0; background: var(--surface-2); color: var(--muted); }
+.stages span { font-size: .74rem; color: var(--body); text-align: center; line-height: 1.4; }
+@media (max-width: 47.99rem) { .stages { grid-template-columns: repeat(3, 1fr); } .stages li:nth-child(3) b { border-radius: 0 8px 8px 0; } .stages li:nth-child(4) b { border-radius: 8px 0 0 8px; } }
+.steps { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.steps li { display: flex; align-items: center; gap: .45rem; font-size: .85rem; }
+.steps b { width: 2rem; height: 2rem; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-size: .8rem; font-weight: 800; }
+.steps li:last-child b { background: var(--ink); }
+.steps li + li { position: relative; padding-left: .9rem; }
+.steps li + li::before { content: ""; position: absolute; left: 0; top: 50%; width: .5rem; height: 2px; background: var(--line); }
+.matrix { display: grid; grid-template-columns: minmax(7rem, 1.2fr) 1fr 1fr; gap: 4px; font-size: .85rem; }
+.matrix .mh { font-weight: 700; color: var(--muted); font-size: .78rem; padding: .3rem .4rem; }
+.matrix .mk { font-weight: 700; color: var(--ink); padding: .55rem .4rem; }
+.matrix .mc { background: var(--bg); border: 1px solid var(--line-soft); border-radius: 8px; padding: .55rem .6rem; text-align: center; color: var(--muted); }
+.matrix .mc.win { background: var(--accent-soft); color: var(--accent-deep); font-weight: 800; border-color: transparent; }
+.ab { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 24rem; }
+.phone { position: relative; background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: .9rem .8rem; min-height: 10rem; display: grid; gap: .5rem; align-content: start; }
+.phone b { font-size: .8rem; color: var(--muted); }
+.phone .ph-t { font-size: .8rem; font-weight: 700; color: var(--ink); }
+.phone i { display: block; height: 1.2rem; border-radius: 4px; background: var(--surface-2); }
+.phone em { display: block; height: 4.6rem; border-radius: 6px; background: var(--accent-soft); }
+.phone.pick { border-color: var(--accent); }
+.vote { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+.vote-q { flex-basis: 100%; font-size: .9rem; color: var(--ink); font-weight: 600; }
+.vote button { appearance: none; font: inherit; font-size: .85rem; font-weight: 700; color: var(--ink); background: var(--bg); border: 1.5px solid var(--line); border-radius: 10px; padding: .45rem .9rem; cursor: pointer; }
+.vote button:hover { border-color: var(--accent); color: var(--accent); }
+.vote button.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.vote button:disabled { cursor: default; opacity: .9; }
+.vote-r { flex-basis: 100%; margin: .5rem 0 0; font-size: .9rem; line-height: 1.6; }
+.vote-r b { color: var(--accent); margin-right: .4rem; }
+.vote-tally { display: block; color: var(--muted); font-size: .8rem; margin-top: .25rem; }
+.ph-badge { position: absolute; top: .6rem; right: .6rem; background: var(--accent); color: var(--accent-ink); font-size: .7rem; font-weight: 800; padding: .15rem .45rem; border-radius: 999px; }
+.scale { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+.sc { padding: .6rem .5rem; border-radius: 8px; display: grid; gap: .15rem; }
+.sc b { font-size: .82rem; color: var(--ink); }
+.sc span { font-size: .72rem; color: var(--muted); }
+.sc.neg2 { background: color-mix(in srgb, var(--warn) 28%, var(--bg)); } .sc.neg { background: color-mix(in srgb, var(--warn) 12%, var(--bg)); }
+.sc.pos { background: var(--accent-soft); } .sc.pos2 { background: color-mix(in srgb, var(--accent) 38%, var(--bg)); }
+@media (max-width: 47.99rem) { .scale { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---------- AI projects ---------- */
+.aiproj { display: grid; gap: 2.5rem; }
+.aiproj article { display: grid; gap: 1.25rem; }
+@media (min-width: 56rem) { .aiproj article { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 2.5rem; align-items: start; } }
+.aiproj h3 { font-size: 1.25rem; font-weight: 800; letter-spacing: -.02em; }
+.aiproj .sub { margin: .25rem 0 1rem; color: var(--muted); font-size: .9rem; }
+.tree { margin: 0; padding: 1rem 1.1rem; background: var(--surface); border-radius: 14px; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .76rem; line-height: 1.6; color: var(--body); white-space: pre; overflow-x: auto; word-break: normal; }
+
+/* ---------- skills / career ---------- */
+.skills { margin: 0; display: grid; gap: .9rem; }
+.skills .row { display: grid; gap: .15rem; }
+@media (min-width: 48rem) { .skills .row { grid-template-columns: 8rem minmax(0, 1fr); gap: 1rem; } }
+.skills dt { color: var(--ink); font-weight: 800; font-size: .9rem; }
+.skills dd { margin: 0; max-width: 66ch; }
+.contact { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; font-weight: 600; }
+mark.todo { background: #FFE7A3; color: #5A4300; padding: 0 .3em; border-radius: 4px; }
+.foot { border-top: 1px solid var(--line-soft); padding-block: 2rem 3.5rem; color: var(--muted); font-size: .82rem; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">김영균</a>
+    <nav class="menu" aria-label="섹션">
+      <a href="#system">운영 체계</a>
+      <a href="#channels">채널</a>
+      <a href="#ax">AI로 바꾼 일</a>
+      <a href="#crm">CRM 프로젝트</a>
+      <a href="#aiproj">AI 프로젝트</a>
+      <a href="#skills">역량·경력</a>
+    </nav>
+    <button class="theme" type="button" aria-label="밝은/어두운 테마 전환" title="테마 전환">◐</button>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+
+    <section class="hero" id="intro">
+      <div>
+        <p class="who"><span class="avatar" aria-hidden="true">YK</span><span><span class="nm">김영균</span><br><span class="rl">CRM &amp; Growth marketer · AI</span></span></p>
+        <h1>8년간 고객 생애주기를 운영한 CRM 마케터. 지금은 <mark>AI로 일하는 방식을 다시 설계하는</mark> 중.</h1>
+        <div class="seg" role="group" aria-label="어떤 분이세요?">
+          <span class="seg-q">어떤 분이세요?</span>
+          <button type="button" data-seg="recruiter">채용 담당자</button>
+          <button type="button" data-seg="alumni">동문·네트워킹</button>
+          <button type="button" data-seg="browse">그냥 구경</button>
+          <p class="seg-note" aria-live="polite"></p>
+        </div>
+        <div class="now"><b>지금</b><ul><li>KAIST MBA 마지막 학기, 2027.2 졸업 예정</li><li>2026 상반기 카네기멜론 방문학자 과정 수료</li><li>야놀자 Braze 도입 전담, CRM마케팅파트 리더(2022~)</li></ul></div>
+        <p class="links">
+          <a class="btn pri" href="mailto:yeongkyun.kr@gmail.com">이메일 보내기</a>
+          <a class="btn" href="https://linkedin.com/in/yeong-kyun-kim-1aaa22133" target="_blank" rel="noopener noreferrer">LinkedIn <span class="ext" aria-hidden="true">↗</span></a>
+          <a class="btn" href="https://github.com/yeongkyunkr-dot" target="_blank" rel="noopener noreferrer">GitHub <span class="ext" aria-hidden="true">↗</span></a>
+        </p>
+      </div>
+      <figure class="stack">
+        <img src="assets/push-ab.jpg" alt="같은 호텔 이미지에 제목만 다른 푸시 두 건" width="602" height="290">
+        <img src="assets/push-image.jpg" alt="이미지가 펼쳐진 호텔 추천 푸시" width="602" height="500">
+        <img src="assets/push-luckydraw.jpg" alt="럭키드로우 프로모션 푸시" width="602" height="160">
+        <figcaption>직접 설계·발송한 야놀자 푸시, 실제 수신 화면</figcaption>
+      </figure>
+    </section>
+
+    <section class="tl" aria-label="경력 타임라인">
+      <div class="gantt">
+        <div class="g-years" aria-hidden="true"><div class="g-ys"><span style="grid-column:1/13">2018</span><span style="grid-column:13/25">2019</span><span style="grid-column:25/37">2020</span><span style="grid-column:37/49">2021</span><span style="grid-column:49/61">2022</span><span style="grid-column:61/73">2023</span><span style="grid-column:73/85">2024</span><span style="grid-column:85/97">2025</span><span style="grid-column:97/109">2026</span><span style="grid-column:109/111;white-space:nowrap;overflow:visible">2027</span></div></div>
+        <div class="g-row"><div class="g-l"><b>하나카드</b><span>타겟마케팅부 · 2018.1–2020.3</span></div><div class="g-t"><i class="g-b soft" style="grid-column:1/28" title="하나카드 2018.1–2020.3"></i></div></div>
+        <div class="g-row"><div class="g-l"><b>원티드랩</b><span>CRM 매니저 · 2020.4–2020.10</span></div><div class="g-t"><i class="g-b soft" style="grid-column:28/35" title="원티드랩 2020.4–2020.10"></i></div></div>
+        <div class="g-row"><div class="g-l"><b>야놀자</b><span>CRM마케팅파트 · 2020.10–2026.1</span></div><div class="g-t"><i class="g-b mid" style="grid-column:34/49" title="매니저 2020.10–2021.12"></i><i class="g-b full" style="grid-column:49/98" title="파트리더 2022.1–2026.1">파트리더 2022.1~</i></div></div>
+        <div class="g-row"><div class="g-l"><b>KAIST MBA</b><span>Global Business Analytics · 2025.2–2027.2</span></div><div class="g-t"><i class="g-b edu" style="grid-column:86/111" title="KAIST MBA 2025.2–2027.2"></i></div></div>
+        <div class="g-row"><div class="g-l"><b>Carnegie Mellon</b><span>Visiting Scholar, CS · 2026.1–2026.7</span></div><div class="g-t"><i class="g-b ink" style="grid-column:97/104" title="CMU 2026.1–2026.7"></i></div></div>
+      </div>
+    </section>
+
+    <section class="sec" id="system">
+      <div class="sec-h"><h2>운영 체계</h2><p>한 고객을 보는 데이터 축에서 AI까지</p></div>
+      <ol class="flow">
+        <li><h3>고객 데이터 축</h3><p>접속(최근성) · 구매(이력·카테고리) · 관심사(탐색 상품) · 멤버십 상태 · 후기 감정 점수</p><small>Braze · DW, 한 고객 기준으로 결합</small></li>
+        <li><h3>생애주기 세그먼트</h3><p>설치 → 가입 → 첫 구매 → 재구매 → 크로스셀·업셀 → 멤버십 → 이탈</p><small>당월 접속 × 당월 구매로 활성·이탈 구분</small></li>
+        <li><h3>채널</h3><p>푸시 · 인앱 · 이메일 · 카카오톡 · 문자</p><small>인당 발송 상한, 태그별 빈도 기준</small></li>
+        <li><h3>측정</h3><p>미노출·미발송 대조군 · 문구·랜딩 A/B · 증분·경제성 분석</p><small>처음 하는 캠페인은 모두 대조군 비교</small></li>
+        <li class="ai"><h3>AI</h3><p>카피 GPT(유의한 문구를 작성 예시로) · 자동 생성 콘텐츠(해외 여행 코스 메일) · SQL·리포트 GPTs</p><small>팀 공용</small></li>
+      </ol>
+      <p class="flow-back">결과를 다음 캠페인 설계에 반영 ↺</p>
+      <p class="cap">야놀자 CRM마케팅파트에서 운영한 구조</p>
+    </section>
+
+    <section class="sec" id="channels">
+      <div class="sec-h"><h2>채널</h2><p>채널별 용도와 대표 사례</p></div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th scope="col">채널</th><th scope="col">용도</th><th scope="col">대표 사례</th></tr></thead>
+          <tbody>
+            <tr><td>푸시</td><td>행동 트리거, 리마인드, 주간 추천 대량 발송</td><td><a href="#p07">랜딩 A/B</a> · <a href="#p09">문구 A/B</a></td></tr>
+            <tr><td>인앱</td><td>온보딩 가입 유도, 멤버십 인지·승급, 이탈 임박 리워드 모달</td><td><a href="#p04">멤버십 6단계</a></td></tr>
+            <tr><td>이메일</td><td>개인화 추천, GPT 자동 생성 여행 코스</td><td><a href="#p02">추천 메일</a> · <a href="#p09">해외 코스</a></td></tr>
+            <tr><td>카카오톡</td><td>알림톡 추천, 제휴·대량 Paid 발송</td><td><a href="#p02">알림톡 채널 추가</a></td></tr>
+            <tr><td>문자</td><td>장기 미접속 복귀 (기간이 길수록 앱 밖 채널)</td><td><a href="#p06">이탈 구간 오퍼</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cap">빈도 위계: 푸시 &gt; 인앱 &gt; 카카오톡·문자 &gt; 이메일. 인당 푸시 상한 일 2회·주 7회 미만</p>
+    </section>
+
+    <section class="sec" id="ax">
+      <div class="sec-h"><h2>AI로 일하는 방식을 바꾼 일</h2><p>팀 운영에 정착시킨 것과 직접 만든 것</p></div>
+      <div class="ax">
+        <a class="card" href="#p09"><small>팀 도구</small><h3>팀 ChatGPT 도입, GPTs 3종 정착</h3><p>SQL·카피·리포트 GPTs 구축. 유의한 A/B 문구를 카피 GPT 작성 예시로 축적</p></a>
+        <a class="card" href="#p08"><small>모델 결과를 캠페인에</small><h3>NLP 감정 점수 케어, GPT 생성 메일</h3><p>데이터팀 NLP 감정 점수로 후기 고객 4그룹 케어, GPT 생성 해외 코스 메일</p></a>
+        <a class="card" href="#p10b"><small>에이전트 설계 · TPM</small><h3>창고 WMS 에이전트 10개 설계</h3><p>항공 부품 창고 WMS의 에이전트 역할·프롬프트·사람 개입 지점 설계, 화면 구현과 시연까지 개발 전반 관여</p></a>
+        <a class="card" href="#p10a"><small>직접 개발</small><h3>Claude Code로 앱·서버 개발</h3><p>UsTwo 리액션 로직·정원·리캡, FastAPI 서버, React Native 앱을 직접 만들고 배포</p></a>
+      </div>
+      <pre class="code"><span class="c"># WMS 팀 저장소 — Claude Code 컨텍스트 설계 (AI PM 담당)</span>
+wms-platform/
+├── <span class="k">CLAUDE.md</span>               language rule · behavioral guidelines · capstone scope · agent routing
+├── claude-contexts/
+│   ├── architecture.md      AWS service map, bounded contexts, event bus (single source of truth)
+│   ├── agent-pattern.md     per-domain Bedrock agent contract
+│   ├── agentic-ai.md        multi-agent orchestrator + HITL escalation rules
+│   ├── event-contract.md    locked event / trace contract
+│   ├── domains/             receiving.md · tq.md · binning.md · dispatch.md
+│   └── plans/               multi-step implementation plans
+└── .claude/                 agents · memory · skills
+
+<span class="c"># CLAUDE.md › Behavioral Guidelines (팀 전체 AI 에이전트에 적용)</span>
+1. Think Before Coding   — state assumptions, surface tradeoffs, ask when unclear
+2. Simplicity First      — minimum code that solves the problem
+3. Surgical Changes      — touch only what you must
+4. Goal-Driven Execution — define success criteria, loop until verified</pre>
+    </section>
+
+    <section class="sec" id="crm">
+      <div class="sec-h"><h2>CRM 프로젝트</h2><p>야놀자 · 원티드랩 · 현업 9건. 제목을 누르면 펼쳐집니다</p></div>
+      <div class="proj-tools"><button type="button" id="toggle-all">모두 펼치기</button></div>
+      
+<details class="proj" id="p01">
+  <summary>
+    <span class="pn">01</span>
+    <span class="pt">실시간 트리거 발송을 위한 Braze 도입</span>
+    <span class="po">야놀자<em>도입</em></span>
+    <span class="chev" aria-hidden="true"></span>
+  </summary>
+  <div class="pbody">
+    <p class="pperiod">도입 제안부터 캠페인 이관까지 전담</p>
+    <figure class="vis">
+  <div class="ba"><span class="ba-k">기존</span><div class="chain"><i>고객 행동</i><i class="slow">DB 적재 대기</i><i class="slow">트리거 주기 대기</i><i>발송</i></div></div>
+  <div class="ba"><span class="ba-k">도입 후</span><div class="chain"><i>고객 행동</i><i class="hot">이벤트 수신</i><i>발송</i></div></div>
+  <figcaption>발송 시점 비교 (개념도)</figcaption>
+</figure>
+    <div class="prose">
+          <span class="lede">기존 툴의 한계</span>
+          <ul class="bullets">
+            <li>주도 개발자 퇴사 후 유지보수만 되던 사내 CRM 툴</li>
+            <li>SQL 기반 준실시간 구조로, DB 적재·트리거 주기만큼 발송 지연</li>
+            <li>몇 시간 안에 끝나는 수요 구간(예: 코로나 시기 모텔 수요)은 매번 놓침</li>
+          </ul>
+          <span class="lede">도입 근거</span>
+          <ul class="bullets">
+            <li>상품 열람 후 경과 시간별 구매 분포 분석</li>
+            <li>발송 지연에 따른 구매 기회손실을 금액으로 산정해 경영진에 도입 제안</li>
+          </ul>
+          <span class="lede">범위 설정</span>
+          <ul class="bullets">
+            <li>구매 퍼널 핵심 이벤트부터 설계: 리스트 → 상품 상세 → 구매 버튼 → 구매 완료</li>
+            <li>단계별 적용. 1단계는 상품 상세와 주문 이벤트만으로 먼저 성과 확인</li>
+            <li>1단계 결과를 전사에 발표해 다음 단계 개발 협업 확보</li>
+          </ul>
+          <div class="tablewrap">
+            <table class="spec">
+              <thead><tr><th scope="col">지표</th><th scope="col">도입 후 변화</th></tr></thead>
+              <tbody>
+                <tr><td>마케팅 메시지 도달률</td><td>약 1.5배</td></tr>
+                <tr><td>트리거 발송량</td><td>3배 이상</td></tr>
+                <tr><td>트리거 캠페인 전환율</td><td>발송량 증가 후에도 유지</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="meta">
+            <span><b>역할</b>도입 제안, 벤더 계약, 이벤트 설계, 기존 캠페인 이관 (전담)</span>
+            <span><b>도구</b>Braze, SQL</span>
+          </div>
+        
+    </div>
+  </div>
+</details>
+
+<details class="proj" id="p02">
+  <summary>
+    <span class="pn">02</span>
+    <span class="pt">추천 API를 연결한 개인화 추천 메일</span>
+    <span class="po">원티드랩<em>협업</em></span>
+    <span class="chev" aria-hidden="true"></span>
+  </summary>
+  <div class="pbody">
+    <p class="pperiod">CRM 담당 1인, ML 개발자 2명과 협업</p>
+    
+    <div class="prose">
+          <span class="lede">문제</span>
+          <ul class="bullets">
+            <li>매주 5개 회사를 일괄 추천하는 메일, 직군이 맞지 않는 추천 혼재</li>
+            <li>상위 20% 회사가 전체 지원의 80%를 가져가는 쏠림</li>
+            <li>CRM 마케터 1인, 전담 스쿼드 없음</li>
+          </ul>
+          <span class="lede">제안</span>
+          <ul class="bullets">
+            <li>사내 추천 API를 대량 발송용으로 확장하자고 제안해 ML 개발자 2명 확보</li>
+          </ul>
+          <span class="lede">설계와 운영</span>
+          <ul class="bullets">
+            <li>큐레이션 로직 설계: 인기도, 찜, 매칭 스코어, 응답률 조합</li>
+            <li>소량 발송으로 추천 결과 QA 후 발송 대상 확대</li>
+            <li>메일 제목은 매주 A/B 테스트</li>
+            <li>개인정보 담당자와 법 해석을 맞춘 뒤 알림톡 채널 추가</li>
+          </ul>
+          <span class="lede">결과</span>
+          <ul class="bullets">
+            <li>유니크 클릭률 상승</li>
+            <li>순지원자 수 매월 최고치 경신</li>
+            <li>알림톡 오픈율, 이메일보다 크게 높음</li>
+          </ul>
+          <div class="meta">
+            <span><b>역할</b>기획·제안, 큐레이션 로직 설계, QA, 제목 A/B 테스트, 채널 추가</span>
+            <span><b>협업</b>ML 개발자 2명, 개인정보 담당자</span>
+            <span><b>도구</b>추천 API, Braze 웹훅, 알림톡</span>
+          </div>
+        
+    </div>
+  </div>
+</details>
+
+<details class="proj" id="p03">
+  <summary>
+    <span class="pn">03</span>
+    <span class="pt">생애주기 구간 정의와 구간별 캠페인</span>
+    <span class="po">야놀자<em>생애주기</em></span>
+    <span class="chev" aria-hidden="true"></span>
+  </summary>
+  <div class="pbody">
+    <p class="pperiod">CRM마케팅파트 리더 · 2022–2025</p>
+    <figure class="vis">
+  <ol class="stages">
+    <li><b>설치</b><span>인앱 + 첫 구매 쿠폰</span></li>
+    <li><b>가입</b><span>1·7·14일 첫 구매 쿠폰</span></li>
+    <li><b>첫 구매</b><span>관심사 트리거</span></li>
+    <li><b>재구매</b><span>크로스셀·업셀</span></li>
+    <li><b>멤버십</b><span>6단계 캠페인</span></li>
+    <li><b>이탈</b><span>구간별 오퍼</span></li>
+  </ol>
+  <figcaption>생애주기 구간과 구간별 캠페인</figcaption>
+</figure>
+    <div class="prose">
+          <ul class="bullets">
+            <li><b>구간</b> 설치 → 가입 → 첫 구매 → 재구매 → 멤버십(골드) → 이탈</li>
+            <li><b>기존 회원 관리 기준</b> 당월 접속 여부 × 당월 구매 여부</li>
+          </ul>
+          <div class="tablewrap">
+            <table class="spec">
+              <thead><tr><th scope="col">구간</th><th scope="col">대상·시점</th><th scope="col">캠페인</th><th scope="col">측정·결과</th></tr></thead>
+              <tbody>
+                <tr><td>가입 유도</td><td>설치 후 앱 온보딩 종료 시점</td><td>인앱 메시지 + 첫 구매 쿠폰</td><td>가입 전환율·구매 전환율. 미노출 대조군 대비 가입 전환율 상승</td></tr>
+                <tr><td>첫 구매 유도</td><td>가입 후 1일·7일·14일</td><td>첫 구매 쿠폰(매월 변경). 별도 예산 없이 운영</td><td>구매 전환율</td></tr>
+                <tr><td>재구매</td><td>구매 이력 회원, 관심사별(국내숙박·레저 등)</td><td>관심사 기반 타겟 트리거</td><td>CTR, 구매 전환율</td></tr>
+                <tr><td>크로스셀·업셀</td><td>카테고리 조합별 대상. 예: 제주 숙박 예약 회원 → 레저, 모텔만 재구매하는 회원 → 유사 가격대 부티크 호텔, 국내숙박 → 항공·해외숙소</td><td>팀 내 분석가가 만든 크로스 카테고리 대시보드로 조합 관리. 항공·해외숙소 X-sell 트리거 5종은 본인 기획·튜닝, 실행은 파트원</td><td>항공·해외숙소 X-sell: 미발송 대조군 대비 항공 퍼널 유입 +133%~+305%, 항공 구매 전환율 +561%(인앱)</td></tr>
+                <tr><td>멤버십(골드)</td><td>최근 1개월 30만 원 이상 또는 3회 이상 구매 → 1년 유지 (승급 조건은 멤버십팀 설계)</td><td>6단계 캠페인 설계 → 04</td><td>구매 전환율 미노출 대조군 대비 +35%</td></tr>
+                <tr><td>이탈</td><td>당월 미접속·미구매 회원, 기간별 구간</td><td>→ 06</td><td></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <ul class="bullets">
+            <li><b>제휴·전사 캠페인</b> OTT·배달·카드 제휴(NOL 카드는 여신금융협회 심의 대응, 채널별 팀 분담 리드, 초도 발급 목표 초과), 시즌 기획전, 신규 카테고리 런칭 홍보</li>
+            <li><b>채널</b> Paid = 카카오톡 / Owned = 푸시, 인앱, 이메일, 문자. 발송 빈도 푸시 &gt; 인앱 &gt; 카카오·문자 &gt; 이메일. 최근성은 접속일 기준(여행은 구매 주기가 길어 접속일이 관심도를 반영)</li>
+          </ul>
+          <div class="meta">
+            <span><b>역할</b>파트 리드, 채널 총괄, 파트원 3~4명</span>
+            <span><b>도구</b>Braze, SQL, Amplitude, Tableau</span>
+          </div>
+
+        
+    </div>
+  </div>
+</details>
+
+<details class="proj" id="p04">
+  <summary>
+    <span class="pn">04</span>
+    <span class="pt">골드 클래스 멤버십 6단계 캠페인 설계</span>
+    <span class="po">야놀자<em>멤버십</em></span>
+    <span class="chev" aria-hidden="true"></span>
+  </summary>
+  <div class="pbody">
+    <p class="pperiod">2024년 2월 멤버십 론칭 · 설계 본인, 캠페인 실행 파트원</p>
+    <figure class="vis">
+  <ol class="steps">
+    <li><b>1</b><span>제도 인지</span></li><li><b>1.5</b><span>체험 유도</span></li><li><b>2</b><span>승급 유도</span></li>
+    <li><b>3</b><span>웰컴 쿠폰</span></li><li><b>4</b><span>쿠폰 사용</span></li><li><b>5</b><span>골드 특가</span></li><li><b>6</b><span>이탈 방어</span></li>
+  </ol>
+  <figcaption>멤버십 6단계 캠페인</figcaption>
+</figure>
+    <div class="prose">
+          <ul class="bullets">
+            <li><b>배경</b> 무료 멤버십 골드 클래스 론칭에 맞춰 인지부터 이탈 방어까지 캠페인 체계 필요</li>
+            <li><b>제약</b> 취소·쿠폰 사용·웹 활동은 앱 SDK 제약으로 Braze에 실시간 수집되지 않아 타겟 누락 발생</li>
+          </ul>
+          <div class="tablewrap">
+            <table class="spec">
+              <thead><tr><th scope="col">단계</th><th scope="col">목적</th><th scope="col">채널</th><th scope="col">대상</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>멤버십 제도 인지</td><td>인앱(앱 실행·상품 상세 트리거)</td><td>미인지 비회원</td></tr>
+                <tr><td>1.5</td><td>멤버십 체험 유도</td><td>인앱 + 푸시</td><td>비회원, 특가 미구매</td></tr>
+                <tr><td>2</td><td>승급 유도</td><td>푸시</td><td>구매 2건 이상 비회원</td></tr>
+                <tr><td>3</td><td>웰컴 쿠폰 다운로드</td><td>인앱 + 푸시</td><td>쿠폰 미다운로드 회원</td></tr>
+                <tr><td>4</td><td>쿠폰 사용 유도</td><td>푸시</td><td>쿠폰 미사용 회원</td></tr>
+                <tr><td>5</td><td>골드 특가 인지 + 해외 크로스셀</td><td>푸시</td><td>쿠폰 사용 완료 회원</td></tr>
+                <tr><td>6</td><td>이탈 방어</td><td>인앱</td><td>이탈 임박 회원</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <ul class="bullets">
+            <li><b>데이터 보완</b> 실시간 행동(앱 실행, 상품 상세)은 Braze 트리거로, 취소 제외 구매 건수·쿠폰 사용 여부는 DW에서 SQL로 일 단위 스냅샷을 만들어 CRM 툴에 배치 연동</li>
+            <li><b>이탈 방어</b> 이탈 임박 회원이 앱을 열면 코인 캐시백 리워드 모달 노출</li>
+            <li><b>결과</b> 구매 전환율 미노출 대조군 대비 +35%, 웰컴 쿠폰 다운로드율 리마인드 캠페인 전 대비 +300% 이상</li>
+          </ul>
+
+        
+    </div>
+  </div>
+</details>
+
+<details class="proj" id="p05">
+  <summary>
+    <span class="pn">05</span>
+    <span class="pt">발송 빈도 기준과 파트 운영 방식</span>
+    <span class="po">야놀자<em>운영 기준</em></span>
+    <span class="chev" aria-hidden="true"></span>
+  </summary>
+  <div class="pbody">
+    <p class="pperiod">대량 발송 요구와 개인화 트리거의 충돌 관리</p>
+    
+    <div class="prose">
+          <span class="lede">발송 빈도 기준</span>
+          <ul class="bullets">
+            <li><b>배경</b> 경영진의 대량 발송 요구가 상시 있었고 개인화 트리거 캠페인과 충돌</li>
+          </ul>
+          <div class="tablewrap">
+            <table class="spec">
+              <thead><tr><th scope="col">기준</th><th scope="col">내용</th></tr></thead>
+              <tbody>
+                <tr><td>인당 발송 상한</td><td>푸시 일 2회, 주 7회 미만</td></tr>
+                <tr><td>캠페인 태그</td><td>유형(lifecycle / trigger / mass / 제휴) × 회원 구분(new / active / dormant) × 소재(motel / hotel / resort / leisure / abroad 등)</td></tr>
+                <tr><td>태그별 빈도 상한</td><td>태그마다 차등, 트리거는 느슨하게</td></tr>
+                <tr><td>트리거 우선 보장</td><td>Braze 빈도 제한 설정 + 발송 시각 분리</td></tr>
+                <tr><td>효과 측정</td><td>처음 시도하는 캠페인은 모두 미노출·미발송 대조군 10%를 두고 비교</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <ul class="bullets">
+            <li><b>결과</b> 대량 발송 요구 속에서 자체 기준으로 발송량 제어, 트리거 캠페인 전환율 유지</li>
+          </ul>
+          <span class="lede">파트 운영</span>
+          <ul class="bullets">
+            <li><b>분담</b> 세그먼트별(신규·기존·이탈) → 채널별(Paid·Owned) → 버티컬이 늘며 국내·해외별로 재편. 채널 캠페인 운영은 파트원에게 위임</li>
+            <li><b>리더 역할</b> KPI를 전주·전월·전년 대비로 모니터링, 미진한 구간 리뷰 후 추가 캠페인 편성</li>
+            <li><b>주간회의</b> 성과가 좋은 캠페인과 부진한 캠페인 공유, 우수 사례 전파</li>
+          </ul>
+
+        
+    </div>
+  </div>
+</details>
+
+<details class="proj" id="p06">
+  <summary>
+    <span class="pn">06</span>
+    <span class="pt">이탈 예방·복귀: 오퍼 테스트와 경제성 분석</span>
+    <span class="po">야놀자<em>이탈 관리</em></span>
+    <span class="chev" aria-hidden="true"></span>
+  </summary>
+  <div class="pbody">
+    <p class="pperiod">구간 정의 → 오퍼 유형 테스트 → 경제성 분석 → 대상 재편</p>
+    <figure class="vis">
+  <div class="matrix">
+    <div class="mh"></div><div class="mh">코인 (즉시 지급)</div><div class="mh">쿠폰 (조건부 할인)</div>
+    <div class="mk">첫 구매 대상</div><div class="mc win">유입 ↑</div><div class="mc">—</div>
+    <div class="mk">당월 미구매</div><div class="mc">—</div><div class="mc win">전환 ↑</div>
+    <div class="mk">제휴 포인트 연동</div><div class="mc win">전환 ↑</div><div class="mc">—</div>
+  </div>
+  <figcaption>세그먼트 3 × 오퍼 2 (× 채널 푸시·인앱). 유입은 코인, 전환은 쿠폰</figcaption>
+</figure>
+    <div class="prose">
+          <span class="lede">구간 정의와 오퍼 운영</span>
+          <ul class="bullets">
+            <li>이탈 기준 두 가지: 당월 미접속, 당월 미구매</li>
+            <li>미접속 구간: 2주 / 1개월 / 1개월 초과(2개월·6개월·1년)</li>
+            <li>구간별 오퍼 차등: 활성 회원은 소액, 장기 이탈은 고액 쿠폰. 기간이 길수록 채널은 앱 밖으로</li>
+            <li>발송 방식: 구간별 주기적 대량 발송, 미발송 대조군 유지</li>
+          </ul>
+          <span class="lede">오퍼 유형 테스트 (코인 vs 쿠폰)</span>
+          <ul class="bullets">
+            <li><b>설계</b> 세그먼트 3종(첫 구매 대상 / 당월 미구매 / 제휴 포인트 연동 미구매) × 오퍼 2종(즉시 지급 코인 / 조건부 할인 쿠폰) × 채널 2종(푸시 / 인앱)</li>
+          </ul>
+          <div class="tablewrap">
+            <table class="spec">
+              <thead><tr><th scope="col">목적</th><th scope="col">권장 오퍼</th><th scope="col">근거</th></tr></thead>
+              <tbody>
+                <tr><td>유입(CTR)</td><td>코인</td><td>푸시 CTR이 쿠폰보다 높음</td></tr>
+                <tr><td>구매 전환(CVR)</td><td>쿠폰</td><td>당월 구매자 CVR이 코인보다 높음</td></tr>
+                <tr><td>제휴 포인트 연동 회원 활성화</td><td>코인</td><td>미지급 대조군 대비 CVR 상승</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <span class="lede">사후 경제성 분석</span>
+          <div class="tablewrap">
+            <table class="spec">
+              <thead><tr><th scope="col">대상</th><th scope="col">반응</th><th scope="col">미발송 대조군 대비</th><th scope="col">판단</th></tr></thead>
+              <tbody>
+                <tr><td>유실적 활성 회원</td><td>CTR·구매 전환율 가장 높음</td><td>대조군도 활성 회원이라 오퍼 없이도 구매 → 증분 없음</td><td>오퍼 중단</td></tr>
+                <tr><td>이탈 임박·이탈 회원 (장기 미접속 포함)</td><td>—</td><td>대조군 자연 유입이 거의 없음 → 증분 확실</td><td>오퍼 집중</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <span class="lede">재편</span>
+          <ul class="bullets">
+            <li>오퍼 캠페인을 이탈 임박·이탈 회원 대상으로 재편</li>
+            <li>앱 내 &lsquo;my 혜택&rsquo; 페이지를 기획해 오퍼 노출 지면으로 운영 (개발은 PM·개발팀)</li>
+          </ul>
+
+        
+    </div>
+  </div>
+</details>
+
+<details class="proj" id="p07">
+  <summary>
+    <span class="pn">07</span>
+    <span class="pt">리마인드 푸시 랜딩 A/B 테스트</span>
+    <span class="po">야놀자<em>실험</em></span>
+    <span class="chev" aria-hidden="true"></span>
+  </summary>
+  <div class="pbody">
+    <p class="pperiod">행동 기반 리마인드 푸시</p>
+    <figure class="vis">
+  <div class="ab">
+    <div class="phone" data-ph="A"><b>A</b><span class="ph-t">추천 숙소 목록</span><i></i><i></i><i></i></div>
+    <div class="phone" data-ph="B"><b>B</b><span class="ph-t">마지막으로 본 숙소 상세</span><em></em><span class="ph-badge" hidden>채택</span></div>
+  </div>
+  <div class="vote" data-vote="ab">
+    <span class="vote-q">숙소를 보고 안 산 고객에게 리마인드 푸시를 보냅니다. 눌렀을 때 어디로 보내는 게 맞을까요?</span>
+    <button type="button" data-choice="A">A 추천 숙소 목록</button>
+    <button type="button" data-choice="B">B 마지막으로 본 숙소</button>
+    <p class="vote-r" hidden><b>실제 결과</b> 동일 대상을 5:5로 나눠 테스트했고, B안의 구매 전환율이 유의하게 높아 채택했습니다. 이후 개발팀이 서비스 랜딩 상단에 최근 본 숙소 모듈을 추가했습니다.<span class="vote-tally"></span></p>
+  </div>
+  <figcaption>동일 대상 5:5 분할</figcaption>
+</figure>
+    <div class="prose">
+          <ul class="bullets">
+            <li><b>관행</b> 숙소 탐색 후 미구매 리마인드 푸시는 늘 추천 페이지로 연결</li>
+            <li><b>발견</b> SQL 경로 분석 결과, 고객은 추천 페이지를 지나 다시 검색해 최근 본 숙소를 예약</li>
+          </ul>
+          <div class="tablewrap">
+            <table class="spec">
+              
+              <tbody>
+                <tr><td>검증할 질문</td><td>리마인드 푸시의 랜딩으로 추천 페이지가 맞는가</td></tr>
+                <tr><td>비교 조건</td><td>A안 추천 숙소 목록 / B안 마지막으로 본 숙소 상세. 동일 대상, 무작위 5:5 분할</td></tr>
+                <tr><td>지표</td><td>캠페인 구매 전환율, 차이의 유의성</td></tr>
+                <tr><td>결과</td><td>B안의 구매 전환율이 유의하게 높아 채택</td></tr>
+                <tr><td>반영</td><td>캠페인 효과 공유 후 개발팀이 서비스 랜딩 페이지 상단에 최근 본 숙소 모듈 추가</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+        
+    </div>
+  </div>
+</details>
+
+<details class="proj" id="p08">
+  <summary>
+    <span class="pn">08</span>
+    <span class="pt">후기 감정 점수 기반 고객 케어</span>
+    <span class="po">야놀자<em>대조군 검증</em></span>
+    <span class="chev" aria-hidden="true"></span>
+  </summary>
+  <div class="pbody">
+    <p class="pperiod">데이터팀 NLP 점수 활용 · 2024년 4월 테스트 · 설계·첫 실행 본인, 이후 운영 파트원</p>
+    <figure class="vis">
+  <div class="scale">
+    <div class="sc neg2"><b>아주 부정</b><span>평균·최소 0.5 이하</span></div>
+    <div class="sc neg"><b>부정·중립</b><span>평균 0.6 이하</span></div>
+    <div class="sc pos"><b>긍정·중립</b><span>평균 0.6 초과</span></div>
+    <div class="sc pos2"><b>아주 긍정</b><span>평균·최소 0.9 이상</span></div>
+  </div>
+  <figcaption>후기 감정 점수(0~1) 4그룹 분류. 그룹별 메시지, 10%는 미발송 대조군</figcaption>
+</figure>
+    <div class="prose">
+          <ul class="bullets">
+            <li><b>배경</b> 개발자는 슬랙 채널로 저평점 리뷰를 검토, 마케팅은 평점 데이터 미활용. 저평점 리뷰 고객은 이탈 가능성이 높음(&ldquo;앱 삭제하겠다&rdquo; 류)</li>
+            <li><b>데이터</b> 데이터팀이 후기를 NLP로 분석해 만든 감성 점수(0~1) 테이블 확인. 담당자와 협의해 평균·최소·부정 비율 3축으로 4그룹 분류 기준을 조정</li>
+            <li><b>실행</b> 전일 후기 작성 고객을 매일 분류해 그룹별 메시지 발송(90%), 10%는 미발송 대조군. 그룹별 문구는 생성형 AI로 초안 작성</li>
+          </ul>
+          <div class="tablewrap">
+            <table class="spec">
+              <thead><tr><th scope="col">그룹</th><th scope="col">분류 기준</th><th scope="col">메시지</th></tr></thead>
+              <tbody>
+                <tr><td>아주 긍정</td><td>평균·최소 점수 0.9 이상, 부정 비율 0%</td><td>만족 감사, 다음 여행 제안</td></tr>
+                <tr><td>긍정·중립</td><td>평균 0.6 초과, 최소 0.5 초과</td><td>후기 감사, 의견 반영 약속</td></tr>
+                <tr><td>부정·중립</td><td>평균 0.6 이하, 부정 비율 0.1~0.2%</td><td>후기 감사, 개선 약속</td></tr>
+                <tr><td>아주 부정</td><td>평균·최소 점수 0.5 이하, 부정 비율 0.2% 초과</td><td>사과, 관련 부서 전달 약속</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <ul class="bullets">
+            <li><b>결과</b> 미발송 대조군 대비 앱 접속률 +68.8%, 구매회원 구매 전환율 +20.3%, 국내숙소 구매 전환율 +15.5%. 특히 아주 부정 그룹에서 재방문 차이가 통계적으로 유의</li>
+          </ul>
+
+        
+    </div>
+  </div>
+</details>
+
+<details class="proj" id="p09">
+  <summary>
+    <span class="pn">09</span>
+    <span class="pt">캠페인 운영에 쓴 생성형 AI</span>
+    <span class="po">야놀자<em>AI 활용</em></span>
+    <span class="chev" aria-hidden="true"></span>
+  </summary>
+  <div class="pbody">
+    <p class="pperiod">팀 GPTs, GPT 생성 콘텐츠</p>
+    <figure class="vis">
+  <div class="chain wide"><i>제목만 다른 푸시 A/B</i><i>유의한 문구 사례 축적</i><i class="hot">카피 GPT 작성 예시(few-shot)</i><i>팀 공용</i></div>
+  <figcaption>GPT의 CTR 효과는 별도 측정하지 않음</figcaption>
+</figure>
+    <div class="prose">
+          <h3>문구 A/B 테스트 결과를 팀 카피 GPT 작성 예시로 활용</h3>
+          <ul class="bullets">
+            <li><b>배경</b> 대량 발송 캠페인 CTR 지속 하락</li>
+            <li><b>대응</b> 대상 고객 기준 세분화, 문구는 대조군을 둔 A/B 테스트로 비교</li>
+            <li><b>사례</b> 주간 호텔 추천 푸시. 호텔 이미지 소재는 도입 전후 비교로 클릭 상승을 확인한 뒤 기본 형식으로 확정, 이후 제목만 A/B 테스트</li>
+          </ul>
+          <div class="tablewrap">
+            <table class="spec">
+              <thead><tr><th scope="col">고정한 조건</th><th scope="col">바꾼 조건</th></tr></thead>
+              <tbody>
+                <tr><td>호텔 이미지, 오퍼</td><td>제목 문구 (예: &ldquo;주간 BEST 호텔 추천&rdquo; / &ldquo;놓치지 마세요 이번 주 핫플&rdquo;)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <ul class="bullets">
+            <li><b>활용</b> 유의한 차이를 보인 문구를 사례로 정리, 이 사례를 작성 예시(few-shot)로 넣은 카피 GPT 구축 후 팀 공용으로 사용</li>
+            <li><b>측정 범위</b> 카피 GPT의 CTR 기여는 별도 측정하지 않음</li>
+            <li><b>그 밖의 팀 GPTs</b> 팀 ChatGPT 도입, SQL 작성·리포트 작성용 GPTs 구축</li>
+          </ul>
+          <h3>해외 여행 코스 추천 메일 자동 생성</h3>
+          <ul class="bullets">
+            <li><b>배경</b> 전략 카테고리인 해외여행, 앱 내 해외 상품 탐색 고객은 극소수</li>
+            <li><b>대상</b> 국내 고단가 호텔 탐색 고객을 해외 탐색으로 유도, 해외 탐색을 시작한 고객에게 특가·항공 프로모션</li>
+            <li><b>콘텐츠</b> GPT로 국가별 여행 코스와 이미지를 자동 생성해 숙소·항공 정보와 함께 메일 구성</li>
+            <li><b>결과</b> CRM 랜딩 전환율이 높게 나오며 해외마케팅팀이 먼저 협업 요청</li>
+          </ul>
+        
+    </div>
+  </div>
+</details>
+    </section>
+
+    <section class="sec" id="aiproj">
+      <div class="sec-h"><h2>AI · 에이전트 프로젝트</h2><p>카네기멜론 교육 과정과 개인 프로젝트</p></div>
+      <div class="aiproj">
+
+        <article id="p10a">
+          <figure class="shots three">
+            <img src="assets/ustwo-home.png" alt="UsTwo 홈 화면: 두 캐릭터가 있는 정원" width="552" height="1200" loading="lazy">
+            <img src="assets/ustwo-recap.png" alt="UsTwo 통화 리캡 카드" width="552" height="1200" loading="lazy">
+            <img src="assets/ustwo-garden-5.png" alt="UsTwo 감정 정원 5단계" width="552" height="1200" loading="lazy">
+            <figcaption>UsTwo 실제 화면</figcaption>
+          </figure>
+          <div>
+            <h3>UsTwo — 통화 감정 분석 앱</h3>
+            <p class="sub">카네기멜론 11-775 Large Scale Multimedia Analysis 팀 프로젝트 · 3인 팀 · 2026 봄 · App Engineer + 데이터셋 공동</p>
+            <ul class="bullets">
+              <li>두 사람의 통화 녹음을 음성·텍스트로 감정 분석해 캐릭터 리액션, 감정 정원, LLM 리캡 카드로 보여 주는 모바일 앱</li>
+              <li>흐름: 통화 녹음 → 화자 분리·음성 인식 → 음성·텍스트 감정 분석 → 리액션·정원·리캡</li>
+              <li>팀 구성: PO·리서치 1, ML 파이프라인 1, 앱·서버 1 (본인)</li>
+              <li>데이터·모델 (팀이 가장 많은 시간을 들인 부분): 화자 분리 → 음성 인식 → 음성 감정 모델(emotion2vec LoRA)·한국어 텍스트 감정 모델(KcELECTRA LoRA) 미세조정 → 언어별 융합 가중치 학습. 데이터셋은 영어 RAVDESS·MELD, 한국어 AI Hub 감성 대화 말뭉치·20Hours</li>
+              <li>본인 참여(데이터·모델): AI Hub와 공개 데이터 저장소에서 한국어·영어 텍스트·음성 감정 데이터를 조사해 수집, 감정 분석 정확도를 올릴 방법 검토에 참여. 앱 개발용 Stage 2 출력 형식의 테스트 샘플·목업 데이터 작성</li>
+            </ul>
+            <div class="tablewrap"><table class="spec">
+              <thead><tr><th scope="col">본인 담당</th><th scope="col">내용</th></tr></thead>
+              <tbody>
+                <tr><td>데이터셋 (팀 공동)</td><td>텍스트·음성 감정 데이터 리서치·수집, 정확도 향상 방안 검토</td></tr>
+                <tr><td>리액션 로직</td><td>두 화자의 감정 조합을 캐릭터 상호작용 9종으로 매핑</td></tr>
+                <tr><td>감정 정원</td><td>긍정 통화가 쌓일수록 5단계로 자라는 정원, 최근 비율·경과일에 따른 무드 4종</td></tr>
+                <tr><td>리캡 생성</td><td>통화 요약 카드를 Claude LLM으로 생성</td></tr>
+                <tr><td>서버</td><td>FastAPI, API 6종, SQLite</td></tr>
+                <tr><td>앱</td><td>React Native(Expo), expo-router, SVG 캐릭터</td></tr>
+                <tr><td>배포·테스트</td><td>HuggingFace Spaces(Docker), 테스트 144개</td></tr>
+              </tbody></table></div>
+            <p class="cap">개발 방식: Claude Code로 앱·서버 코드 작성, 캐릭터·UX 설계는 직접</p>
+          </div>
+        </article>
+
+        <article id="p10b">
+          <figure class="shots">
+            <img src="assets/wms-binning.png" alt="적치 화면: 입고 부품 대기열과 AI 적치 위치 추천, 추천 근거 3가지" width="1600" height="1220" loading="lazy">
+            <img src="assets/wms-aog.png" alt="긴급(AOG) 부품 도착 알림이 뜬 적치 화면" width="1600" height="867" loading="lazy">
+            <figcaption>적치 공정 화면 · AI 적치 위치 추천과 긴급(AOG) 알림 · 팀 결과물</figcaption>
+          </figure>
+          <div>
+            <h3>WMS 캡스톤 — 항공 부품 창고 멀티 에이전트 시스템</h3>
+            <p class="sub">카네기멜론 DTDA 스튜디오 과정 캡스톤 · 5인 팀 · 2026 봄 (4~6월) · AI PM, 실제로는 TPM에 가까운 역할</p>
+            <ul class="bullets">
+              <li>항공 부품 창고의 4개 공정(입고 → 품질검사 → 적치 → 출고)을 AI 에이전트가 잇는 창고관리 시스템. 문서 대조, 적치 위치 추천, 검사 보조, 긴급 출고 우선순위를 에이전트가 처리하고 판단이 필요한 건은 담당자에게 넘김</li>
+              <li>설계 규모: 4개 도메인, 에이전트 10개. 최종 시연은 입고부터 출고까지 5개 에이전트 파이프라인</li>
+              <li>팀 구성: AI PM 1 (본인), 풀스택 1, 데이터 엔지니어 1, UX 디자이너 1, 비즈니스 애널리스트 1</li>
+              <li>본인 역할: 요구사항·에이전트 설계에 그치지 않고 설계 문서·런북 작성, KPI 대시보드·품질검사·출고·입고 화면 구현과 수정, 시연 준비까지 개발 전반에 관여. 작업은 Claude Code로</li>
+            </ul>
+            <div class="tablewrap"><table class="spec">
+              <thead><tr><th scope="col">본인 담당</th><th scope="col">내용</th></tr></thead>
+              <tbody>
+                <tr><td>요구사항</td><td>제품 요구사항 문서, 에이전트별 역할과 판단 기준 정의</td></tr>
+                <tr><td>에이전트 설계</td><td>에이전트 프롬프트 작성, 사람 개입 지점(HITL) 설계</td></tr>
+                <tr><td>개발 컨텍스트</td><td>팀이 Claude Code로 개발하도록 CLAUDE.md와 도메인별 컨텍스트 문서 관리</td></tr>
+                <tr><td>화면 구현</td><td>KPI 대시보드, 품질검사(TQ)·출고·입고 화면 구현과 보완 (React, Claude Code)</td></tr>
+                <tr><td>문서·시연</td><td>설계 스펙, 런북, 핸드오프 문서 작성. 라이브 시연 준비</td></tr>
+                <tr><td>조율</td><td>6단계 일정 관리, 팀 간 인터페이스 조정</td></tr>
+              </tbody></table></div>
+            <p class="cap">팀 기술 구성: AWS Bedrock AgentCore(Claude Sonnet), Lambda, EventBridge, Aurora PostgreSQL, React 프런트</p>
+          </div>
+        </article>
+
+
+      </div>
+    </section>
+
+      <section class="sec" id="skills">
+        <div class="sec-h"><h2>역량</h2></div>
+        <dl class="skills">
+          <div class="row"><dt>CRM</dt><dd>생애주기 구간 설계, 멤버십 풀퍼널 설계, 세그먼트 타겟팅, 발송 빈도 기준 설계, 미노출/미발송 대조군 기반 증분·경제성 분석, A/B·다변량 테스트</dd></div>
+          <div class="row"><dt>데이터</dt><dd>SQL (Oracle, Presto, BigQuery), SAS, Amplitude, GA, Appsflyer</dd></div>
+          <div class="row"><dt>자동화</dt><dd>Braze (도입 2회), Liquid 가변값, SQL 스냅샷 배치 연동, 이메일 HTML·CSS</dd></div>
+          <div class="row"><dt>AI 활용·개발</dt><dd>팀 GPTs 구축 (SQL·카피·리포트), 생성형 AI 메시지 초안, Claude Code, React Native, FastAPI, 멀티 에이전트 설계</dd></div>
+          <div class="row"><dt>언어</dt><dd>한국어 (모국어), 영어</dd></div>
+        </dl>
+      </section>
+
+      <section class="sec" id="career">
+        <div class="sec-h"><h2>경력</h2></div>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th scope="col">기간</th><th scope="col">소속</th><th scope="col">역할</th></tr></thead>
+            <tbody>
+              <tr><td>2018–2020</td><td>하나카드 타겟마케팅부</td><td>타겟 마케팅</td></tr>
+              <tr><td>2020</td><td>원티드랩</td><td>CRM 매니저</td></tr>
+              <tr><td>2020–2026</td><td>야놀자 CRM마케팅파트</td><td>매니저 → 파트리더 (2022~)</td></tr>
+              <tr><td>2025–2027</td><td>KAIST MBA</td><td>Global Business Analytics</td></tr>
+              <tr><td>2026</td><td>Carnegie Mellon University</td><td>Visiting Scholar, CS</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="sec" id="contact">
+        <div class="sec-h"><h2>연락처</h2></div>
+        <div class="contact">
+          <a href="mailto:yeongkyun.kr@gmail.com">yeongkyun.kr@gmail.com</a>
+          <a href="https://linkedin.com/in/yeong-kyun-kim-1aaa22133" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/yeongkyunkr-dot" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </section>
+
+  </div>
+  <footer class="foot"><div class="wrap">© 2026 Yeong Kyun Kim</div></footer>
+</main>
+
+<script>
+(() => {
+  const root = document.documentElement, btn = document.querySelector('.theme');
+  try { const t = localStorage.getItem('theme'); if (t) root.dataset.theme = t; } catch (e) {}
+  btn.addEventListener('click', () => {
+    root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+  });
+  // open a collapsed project when linked to (#p0N) and scroll to it
+  const openTarget = () => {
+    const el = document.getElementById(location.hash.slice(1));
+    if (el && el.tagName === 'DETAILS') el.open = true;
+  };
+  window.addEventListener('hashchange', openTarget); openTarget();
+  // expand / collapse all
+  const all = [...document.querySelectorAll('details.proj')], tb = document.getElementById('toggle-all');
+  const sync = () => { tb.textContent = all.every(d => d.open) ? '모두 접기' : '모두 펼치기'; };
+  tb.addEventListener('click', () => { const open = !all.every(d => d.open); all.forEach(d => d.open = open); sync(); });
+  all.forEach(d => d.addEventListener('toggle', sync));
+  // ---- counter (optional): set COUNTER_URL to a Google Apps Script web-app URL; empty = no counting ----
+  const COUNTER_URL = '';
+  const KEYS = ['seg_recruiter','seg_alumni','seg_browse','ab_A','ab_B'];
+  let counts = null;
+  const bump = key => { if (!COUNTER_URL) return; fetch(COUNTER_URL, { method: 'POST', mode: 'no-cors', body: key }).catch(() => {}); if (counts) counts[key] = (counts[key] || 0) + 1; };
+  const loadCounts = () => COUNTER_URL ? fetch(COUNTER_URL + '?keys=' + KEYS.join(',')).then(r => r.json()).then(j => { counts = j.counts || j; }).catch(() => {}) : Promise.resolve();
+  const once = (ns, key) => { try { const k = 'voted:' + ns; if (localStorage.getItem(k)) return false; localStorage.setItem(k, key); return true; } catch (e) { return true; } };
+
+  // ---- 1) visitor segment ----
+  const seg = document.querySelector('.seg'), segNote = seg.querySelector('.seg-note');
+  const crmSec = document.getElementById('crm'), aiSec = document.getElementById('aiproj');
+  const NOTE = {
+    recruiter: '<b>채용 담당자</b>용으로 CRM 프로젝트 중 도입·생애주기·경제성 3건(01·03·06)을 펼쳐 두었습니다.',
+    alumni: '<b>동문·네트워킹</b>용으로 AI·에이전트 프로젝트를 CRM 프로젝트보다 앞에 두었습니다. 지금 하는 일은 위 "지금" 칸에 있습니다.',
+    browse: '<b>구경</b>이시면 운영 체계 한 장과 "AI로 일하는 방식을 바꾼 일" 네 가지만 보셔도 됩니다.'
+  };
+  const applySeg = (key, fromUser) => {
+    seg.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.seg === key));
+    all.forEach(d => d.open = false);
+    if (key === 'recruiter') ['p01','p03','p06'].forEach(i => document.getElementById(i).open = true);
+    if (key === 'alumni') crmSec.parentNode.insertBefore(aiSec, crmSec); else aiSec.parentNode.insertBefore(crmSec, aiSec);
+    sync();
+    let note = NOTE[key];
+    if (counts) { const n = counts['seg_' + key] || 0; if (n > 0) note += ' 지금까지 같은 선택 ' + n.toLocaleString('ko-KR') + '명.'; }
+    segNote.innerHTML = note;
+    try { localStorage.setItem('seg', key); } catch (e) {}
+    if (fromUser && once('seg', key)) bump('seg_' + key);
+  };
+  seg.addEventListener('click', e => { const b = e.target.closest('button[data-seg]'); if (b) applySeg(b.dataset.seg, true); });
+
+  // ---- 4) A/B vote ----
+  const vote = document.querySelector('.vote[data-vote="ab"]');
+  const showAb = choice => {
+    vote.querySelectorAll('button').forEach(b => { b.classList.toggle('on', b.dataset.choice === choice); b.disabled = true; });
+    const r = vote.querySelector('.vote-r'); r.hidden = false;
+    const ph = vote.closest('.vis').querySelector('[data-ph="B"]'); ph.classList.add('pick'); ph.querySelector('.ph-badge').hidden = false;
+    if (counts) { const a = counts.ab_A || 0, b = counts.ab_B || 0, t = a + b; if (t > 0) vote.querySelector('.vote-tally').textContent = '지금까지 ' + t.toLocaleString('ko-KR') + '명 중 A ' + Math.round(a / t * 100) + '% · B ' + Math.round(b / t * 100) + '%'; }
+  };
+  vote.addEventListener('click', e => { const b = e.target.closest('button[data-choice]'); if (!b || b.disabled) return; if (once('ab', b.dataset.choice)) bump('ab_' + b.dataset.choice); showAb(b.dataset.choice); });
+
+  loadCounts().then(() => {
+    let saved = null, ab = null; try { saved = localStorage.getItem('seg'); ab = localStorage.getItem('voted:ab'); } catch (e) {}
+    if (saved && NOTE[saved]) applySeg(saved, false);
+    if (ab) showAb(ab);
+  });
+
+  // current section in the top menu
+  const links = [...document.querySelectorAll('.menu a')];
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) {
+    links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id)); } }), { rootMargin: '-30% 0px -60% 0px' });
+  ['system','channels','ax','crm','aiproj','skills'].forEach(id => io.observe(document.getElementById(id)));
+})();
+</script>
+</body>
+</html>
