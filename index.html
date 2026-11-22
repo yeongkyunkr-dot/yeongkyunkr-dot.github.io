@@ -517,7 +517,7 @@ wms-platform/
           <span class="lede">문제</span>
           <ul class="bullets">
             <li>매주 5개 회사를 일괄 추천하는 메일, 직군이 맞지 않는 추천 혼재</li>
-            <li>상위 20% 회사가 전체 지원의 80%를 가져가는 쏠림</li>
+            <li>지원이 일부 회사에 몰리는 쏠림</li>
             <li>CRM 마케터 1인, 전담 스쿼드 없음</li>
           </ul>
           <span class="lede">제안</span>
@@ -558,27 +558,27 @@ wms-platform/
     <p class="pperiod">데이터팀 NLP 점수 활용 · 2024년 4월 테스트 · 설계·첫 실행 본인, 이후 운영 파트원</p>
     <figure class="vis">
   <div class="scale">
-    <div class="sc neg2"><b>아주 부정</b><span>평균·최소 0.5 이하</span></div>
-    <div class="sc neg"><b>부정·중립</b><span>평균 0.6 이하</span></div>
-    <div class="sc pos"><b>긍정·중립</b><span>평균 0.6 초과</span></div>
-    <div class="sc pos2"><b>아주 긍정</b><span>평균·최소 0.9 이상</span></div>
+    <div class="sc neg2"><b>아주 부정</b><span>점수 가장 낮음</span></div>
+    <div class="sc neg"><b>부정·중립</b><span>낮은 편</span></div>
+    <div class="sc pos"><b>긍정·중립</b><span>높은 편</span></div>
+    <div class="sc pos2"><b>아주 긍정</b><span>점수 가장 높음</span></div>
   </div>
-  <figcaption>후기 감정 점수(0~1) 4그룹 분류. 그룹별 메시지, 10%는 미발송 대조군</figcaption>
+  <figcaption>후기 감정 점수 4그룹 분류. 그룹별 메시지, 10%는 미발송 대조군</figcaption>
 </figure>
     <div class="prose">
           <ul class="bullets">
             <li><b>배경</b> 개발자는 슬랙 채널로 저평점 리뷰를 검토, 마케팅은 평점 데이터 미활용. 저평점 리뷰 고객은 이탈 가능성이 높음(&ldquo;앱 삭제하겠다&rdquo; 류)</li>
-            <li><b>데이터</b> 데이터팀이 후기를 NLP로 분석해 만든 감성 점수(0~1) 테이블 확인. 담당자와 협의해 평균·최소·부정 비율 3축으로 4그룹 분류 기준을 조정</li>
+            <li><b>데이터</b> 데이터팀이 후기를 NLP로 분석해 만든 감성 점수 테이블 확인. 담당자와 협의해 4그룹 분류 기준을 조정</li>
             <li><b>실행</b> 전일 후기 작성 고객을 매일 분류해 그룹별 메시지 발송(90%), 10%는 미발송 대조군. 그룹별 문구는 생성형 AI로 초안 작성</li>
           </ul>
           <div class="tablewrap">
             <table class="spec">
               <thead><tr><th scope="col">그룹</th><th scope="col">분류 기준</th><th scope="col">메시지</th></tr></thead>
               <tbody>
-                <tr><td>아주 긍정</td><td>평균·최소 점수 0.9 이상, 부정 비율 0%</td><td>만족 감사, 다음 여행 제안</td></tr>
-                <tr><td>긍정·중립</td><td>평균 0.6 초과, 최소 0.5 초과</td><td>후기 감사, 의견 반영 약속</td></tr>
-                <tr><td>부정·중립</td><td>평균 0.6 이하, 부정 비율 0.1~0.2%</td><td>후기 감사, 개선 약속</td></tr>
-                <tr><td>아주 부정</td><td>평균·최소 점수 0.5 이하, 부정 비율 0.2% 초과</td><td>사과, 관련 부서 전달 약속</td></tr>
+                <tr><td>아주 긍정</td><td>감정 점수가 가장 높은 구간</td><td>만족 감사, 다음 여행 제안</td></tr>
+                <tr><td>긍정·중립</td><td>점수가 높은 편인 구간</td><td>후기 감사, 의견 반영 약속</td></tr>
+                <tr><td>부정·중립</td><td>점수가 낮은 편인 구간</td><td>후기 감사, 개선 약속</td></tr>
+                <tr><td>아주 부정</td><td>감정 점수가 가장 낮은 구간</td><td>사과, 관련 부서 전달 약속</td></tr>
               </tbody>
             </table>
           </div>
@@ -714,7 +714,7 @@ wms-platform/
     <div class="prose">
           <span class="lede">기존 툴의 한계</span>
           <ul class="bullets">
-            <li>주도 개발자 퇴사 후 유지보수만 되던 사내 CRM 툴</li>
+            <li>실시간 발송을 지원하지 않던 사내 CRM 툴</li>
             <li>SQL 기반 준실시간 구조로, DB 적재·트리거 주기만큼 발송 지연</li>
             <li>몇 시간 안에 끝나는 수요 구간(예: 코로나 시기 모텔 수요)은 매번 놓침</li>
           </ul>
@@ -767,8 +767,8 @@ wms-platform/
             <table class="spec">
               <thead><tr><th scope="col">기준</th><th scope="col">내용</th></tr></thead>
               <tbody>
-                <tr><td>인당 발송 상한</td><td>푸시 일 2회, 주 7회 미만</td></tr>
-                <tr><td>캠페인 태그</td><td>유형(lifecycle / trigger / mass / 제휴) × 회원 구분(new / active / dormant) × 소재(motel / hotel / resort / leisure / abroad 등)</td></tr>
+                <tr><td>인당 발송 상한</td><td>일·주 단위 상한을 두어 관리</td></tr>
+                <tr><td>캠페인 태그</td><td>캠페인 유형 × 회원 구분 × 소재로 분류</td></tr>
                 <tr><td>태그별 빈도 상한</td><td>태그마다 차등, 트리거는 느슨하게</td></tr>
                 <tr><td>트리거 우선 보장</td><td>Braze 빈도 제한 설정 + 발송 시각 분리</td></tr>
                 <tr><td>효과 측정</td><td>처음 시도하는 캠페인은 모두 미노출·미발송 대조군 10%를 두고 비교</td></tr>
@@ -820,7 +820,7 @@ wms-platform/
               <thead><tr><th scope="col">구간</th><th scope="col">대상·시점</th><th scope="col">캠페인</th><th scope="col">측정·결과</th></tr></thead>
               <tbody>
                 <tr><td>가입 유도</td><td>설치 후 앱 온보딩 종료 시점</td><td>인앱 메시지 + 첫 구매 쿠폰</td><td>가입 전환율·구매 전환율. 미노출 대조군 대비 가입 전환율 상승</td></tr>
-                <tr><td>첫 구매 유도</td><td>가입 후 1일·7일·14일</td><td>첫 구매 쿠폰(매월 변경). 별도 예산 없이 운영</td><td>구매 전환율</td></tr>
+                <tr><td>첫 구매 유도</td><td>가입 후 1일·7일·14일</td><td>첫 구매 쿠폰(매월 변경)</td><td>구매 전환율</td></tr>
                 <tr><td>재구매</td><td>구매 이력 회원, 관심사별(국내숙박·레저 등)</td><td>관심사 기반 타겟 트리거</td><td>CTR, 구매 전환율</td></tr>
                 <tr><td>크로스셀·업셀</td><td>카테고리 조합별 대상. 예: 제주 숙박 예약 회원 → 레저, 모텔만 재구매하는 회원 → 유사 가격대 부티크 호텔, 국내숙박 → 항공·해외숙소</td><td>팀 내 분석가가 만든 크로스 카테고리 대시보드로 조합 관리. 항공·해외숙소 X-sell 트리거 5종은 본인 기획·튜닝, 실행은 파트원</td><td>항공·해외숙소 X-sell: 미발송 대조군 대비 항공 퍼널 유입 +133%~+305%, 항공 구매 전환율 +561%(인앱)</td></tr>
                 <tr><td>멤버십(골드)</td><td>최근 1개월 30만 원 이상 또는 3회 이상 구매 → 1년 유지 (승급 조건은 멤버십팀 설계)</td><td>6단계 캠페인 설계 → 04</td><td>구매 전환율 미노출 대조군 대비 +35%</td></tr>
@@ -861,7 +861,7 @@ wms-platform/
     <div class="prose">
           <ul class="bullets">
             <li><b>배경</b> 무료 멤버십 골드 클래스 론칭에 맞춰 인지부터 이탈 방어까지 캠페인 체계 필요</li>
-            <li><b>제약</b> 취소·쿠폰 사용·웹 활동은 앱 SDK 제약으로 Braze에 실시간 수집되지 않아 타겟 누락 발생</li>
+            <li><b>제약</b> 취소·쿠폰 사용처럼 실시간으로 수집되지 않는 데이터가 있어 별도 보완이 필요</li>
           </ul>
           <div class="tablewrap">
             <table class="spec">
@@ -961,7 +961,7 @@ wms-platform/
           </tbody>
         </table>
       </div>
-      <p class="cap">빈도 위계: 푸시 &gt; 인앱 &gt; 카카오톡·문자 &gt; 이메일. 인당 푸시 상한 일 2회·주 7회 미만</p>
+      <p class="cap">빈도 위계: 푸시 &gt; 인앱 &gt; 카카오톡·문자 &gt; 이메일. 인당 발송 상한을 두어 관리</p>
     </section>
 
       <section class="sec" id="skills">
@@ -1002,7 +1002,7 @@ wms-platform/
       </section>
 
   </div>
-  <footer class="foot"><div class="wrap">© 2026 Yeong Kyun Kim</div></footer>
+  <footer class="foot"><div class="wrap">© 2026 Yeong Kyun Kim · 성과 수치는 대조군 대비 상대값이며, 회사의 비공개 수치와 내부 기준값은 싣지 않았습니다.</div></footer>
 </main>
 
 <script>
