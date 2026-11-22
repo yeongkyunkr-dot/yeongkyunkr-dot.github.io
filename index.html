@@ -261,6 +261,18 @@ td:nth-child(3) a { white-space: nowrap; }
 @media (max-width: 47.99rem) { .scale { grid-template-columns: repeat(2, 1fr); } }
 
 /* ---------- AI projects ---------- */
+.story { list-style: none; margin: 0; padding: 0; counter-reset: st; }
+.story li { display: grid; grid-template-columns: 5.25rem minmax(0, 1fr); gap: 1rem; align-items: center; padding: .7rem 0; }
+.story li + li { border-top: 1px dashed var(--line); }
+.story svg { width: 100%; height: auto; display: block; }
+.story b { display: block; color: var(--ink); font-size: .92rem; font-weight: 800; line-height: 1.4; }
+.story b::before { counter-increment: st; content: counter(st); display: inline-grid; place-items: center; width: 1.3rem; height: 1.3rem; margin-right: .45rem; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-size: .72rem; font-weight: 800; vertical-align: .08em; }
+.story span { display: block; margin-top: .2rem; color: var(--body); font-size: .84rem; line-height: 1.55; }
+.story .f-bg { fill: var(--bg); } .story .f-ac { fill: var(--accent); } .story .f-soft { fill: var(--accent-soft); } .story .f-line { fill: var(--line); } .story .f-on { fill: var(--accent-ink); opacity: .9; }
+.story .k-ink { stroke: var(--ink); stroke-width: 1.6; stroke-linejoin: round; } .story .k-line { stroke: var(--line); stroke-width: 1.2; }
+.story .k-on { stroke: var(--accent-ink); stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.story .k-ac { stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; } .story .nofill { fill: none; }
+.story .t-on { fill: var(--accent-ink); font-weight: 800; font-size: 15px; font-family: inherit; } .story .t-on.s { font-size: 9px; }
 .aiproj { display: grid; gap: 2.5rem; }
 .aiproj article { display: grid; gap: 1.25rem; grid-template-columns: minmax(0, 1fr); }
 .aiproj article > * { min-width: 0; }
@@ -370,8 +382,13 @@ wms-platform/
 
         <article id="p10d">
           <figure class="vis">
-            <div class="ba"><span class="ba-k">흐름</span><div class="chain"><i>상황 질문 8개</i><i class="hot">LLM 보충 질문</i><i>카드 43장 중 선택</i><i>할 일 5~7개</i></div></div>
-            <figcaption>본인 프로토타입 "맞춤 돌봄 할 일 목록"의 흐름 (개념도)</figcaption>
+            <ol class="story">
+              <li><svg viewBox="0 0 88 64" aria-hidden="true" focusable="false"><rect x="28" y="3" width="32" height="58" rx="7" class="f-bg k-ink"/><rect x="40" y="7" width="8" height="2" rx="1" class="f-line"/><rect x="33" y="16" width="22" height="9" rx="4.5" class="f-line"/><rect x="33" y="29" width="22" height="9" rx="4.5" class="f-ac"/><rect x="33" y="42" width="22" height="9" rx="4.5" class="f-line"/><path d="M39 33.5l3 3 6-6" class="k-on"/></svg><div><b>상황을 고릅니다</b><span>보호자가 휴대폰으로 링크를 열고 질문 8개에 보기를 골라 답함. 질문을 직접 쓰지 않아도 됨</span></div></li>
+              <li><svg viewBox="0 0 88 64" aria-hidden="true" focusable="false"><rect x="6" y="8" width="46" height="22" rx="9" class="f-ac"/><path d="M14 30l-2 8 10-8z" class="f-ac"/><text x="29" y="24.5" text-anchor="middle" class="t-on">?</text><rect x="36" y="38" width="46" height="20" rx="9" class="f-bg k-ink"/><rect x="43" y="45" width="20" height="6" rx="3" class="f-soft"/><rect x="66" y="45" width="10" height="6" rx="3" class="f-line"/><path d="M66 8l1.8 4.7 4.7 1.8-4.7 1.8L66 21l-1.8-4.7-4.7-1.8 4.7-1.8z" class="f-ac"/></svg><div><b>LLM이 더 묻습니다</b><span>답에서 빠진 정보를 보충 질문으로 확인</span></div></li>
+              <li><svg viewBox="0 0 88 64" aria-hidden="true" focusable="false"><rect x="6" y="6" width="9" height="14" rx="2" class="f-bg k-line"/><rect x="17" y="6" width="9" height="14" rx="2" class="f-ac"/><rect x="28" y="6" width="9" height="14" rx="2" class="f-bg k-line"/><rect x="39" y="6" width="9" height="14" rx="2" class="f-bg k-line"/><rect x="50" y="6" width="9" height="14" rx="2" class="f-bg k-line"/><rect x="61" y="6" width="9" height="14" rx="2" class="f-bg k-line"/><rect x="72" y="6" width="9" height="14" rx="2" class="f-bg k-line"/><rect x="6" y="24" width="9" height="14" rx="2" class="f-bg k-line"/><rect x="17" y="24" width="9" height="14" rx="2" class="f-bg k-line"/><rect x="28" y="24" width="9" height="14" rx="2" class="f-bg k-line"/><rect x="39" y="24" width="9" height="14" rx="2" class="f-bg k-line"/><rect x="50" y="24" width="9" height="14" rx="2" class="f-ac"/><rect x="61" y="24" width="9" height="14" rx="2" class="f-bg k-line"/><rect x="72" y="24" width="9" height="14" rx="2" class="f-bg k-line"/><rect x="6" y="42" width="9" height="14" rx="2" class="f-bg k-line"/><rect x="17" y="42" width="9" height="14" rx="2" class="f-bg k-line"/><rect x="28" y="42" width="9" height="14" rx="2" class="f-ac"/><rect x="39" y="42" width="9" height="14" rx="2" class="f-bg k-line"/><rect x="50" y="42" width="9" height="14" rx="2" class="f-bg k-line"/><rect x="61" y="42" width="9" height="14" rx="2" class="f-bg k-line"/><rect x="72" y="42" width="9" height="14" rx="2" class="f-bg k-line"/></svg><div><b>확인된 카드에서만 고릅니다</b><span>공식 자료로 확인한 할 일 카드 43장 가운데 상황에 맞는 것을 LLM이 선택. 실패하면 규칙 기반 목록으로 대체</span></div></li>
+              <li><svg viewBox="0 0 88 64" aria-hidden="true" focusable="false"><rect x="16" y="5" width="18" height="12" rx="4" class="f-ac"/><rect x="36" y="5" width="18" height="12" rx="4" class="f-line"/><rect x="56" y="5" width="18" height="12" rx="4" class="f-line"/><rect x="12" y="14" width="64" height="46" rx="6" class="f-bg k-ink"/><rect x="19" y="22" width="8" height="8" rx="2" class="f-ac"/><path d="M21 26l2 2 3-3.5" class="k-on"/><rect x="32" y="24" width="36" height="4" rx="2" class="f-line"/><rect x="19" y="34" width="8" height="8" rx="2" class="f-ac"/><path d="M21 38l2 2 3-3.5" class="k-on"/><rect x="32" y="36" width="28" height="4" rx="2" class="f-line"/><rect x="19" y="46" width="8" height="8" rx="2" class="f-bg k-line"/><rect x="32" y="48" width="32" height="4" rx="2" class="f-line"/></svg><div><b>할 일을 받습니다</b><span>이번 주, 이번 달, 미리 알아둘 것으로 나눈 할 일 5~7개. 할 일마다 연락처와 출처</span></div></li>
+            </ol>
+            <figcaption>본인 프로토타입 "맞춤 돌봄 할 일 목록"을 보호자가 쓰는 순서. 응급 신호가 입력되면 119 안내를 먼저 표시</figcaption>
           </figure>
           <div>
             <h3>돌봄 결정 지원 AI 서비스 — 장기요양 가족 보호자용</h3>
@@ -396,8 +413,14 @@ wms-platform/
 
         <article id="p10e">
           <figure class="vis">
-            <div class="ba"><span class="ba-k">흐름</span><div class="chain"><i>문의 메일</i><i>Slack 알림</i><i class="hot">댓글로 지시</i><i>Claude 초안</i><i>Slack 게시·피드백</i></div></div>
-            <figcaption>문의에서 초안까지의 흐름 (개념도)</figcaption>
+            <ol class="story">
+              <li><svg viewBox="0 0 88 64" aria-hidden="true" focusable="false"><rect x="16" y="14" width="56" height="38" rx="6" class="f-bg k-ink"/><path d="M17 17l27 20 27-20" class="k-ink nofill"/><circle cx="70" cy="14" r="7" class="f-ac"/><text x="70" y="17.5" text-anchor="middle" class="t-on s">1</text></svg><div><b>문의 메일이 옵니다</b><span>기업 문의가 Gmail로 도착</span></div></li>
+              <li><svg viewBox="0 0 88 64" aria-hidden="true" focusable="false"><rect x="8" y="8" width="72" height="48" rx="6" class="f-bg k-ink"/><path d="M8 14a6 6 0 0 1 6-6h10v48H14a6 6 0 0 1-6-6z" class="f-soft"/><rect x="12" y="16" width="8" height="3" rx="1.5" class="f-line"/><rect x="12" y="23" width="8" height="3" rx="1.5" class="f-ac"/><rect x="12" y="30" width="8" height="3" rx="1.5" class="f-line"/><circle cx="34" cy="24" r="4.5" class="f-ac"/><rect x="42" y="20" width="30" height="4" rx="2" class="f-line"/><rect x="42" y="27" width="22" height="4" rx="2" class="f-line"/><rect x="29" y="38" width="44" height="11" rx="4" class="f-soft"/></svg><div><b>Slack에 알림이 뜹니다</b><span>새 문의가 왔다는 알림이 Slack에 올라옴</span></div></li>
+              <li><svg viewBox="0 0 88 64" aria-hidden="true" focusable="false"><circle cx="20" cy="24" r="8" class="f-bg k-ink"/><path d="M6 54c0-9 6-15 14-15s14 6 14 15" class="f-bg k-ink"/><rect x="38" y="10" width="44" height="28" rx="9" class="f-ac"/><path d="M44 38l-6 8 14-8z" class="f-ac"/><rect x="45" y="18" width="30" height="4" rx="2" class="f-on"/><rect x="45" y="26" width="20" height="4" rx="2" class="f-on"/></svg><div><b>대표가 댓글로 지시합니다</b><span>어떤 제안서나 강의안이 필요한지 댓글로 남김</span></div></li>
+              <li><svg viewBox="0 0 88 64" aria-hidden="true" focusable="false"><rect x="24" y="5" width="40" height="54" rx="5" class="f-bg k-ink"/><rect x="30" y="13" width="20" height="5" rx="2.5" class="f-ac"/><rect x="30" y="24" width="28" height="3.5" rx="1.75" class="f-line"/><rect x="30" y="31" width="28" height="3.5" rx="1.75" class="f-line"/><rect x="30" y="38" width="22" height="3.5" rx="1.75" class="f-line"/><rect x="30" y="45" width="26" height="3.5" rx="1.75" class="f-line"/><path d="M70 6l2.4 6.2 6.2 2.4-6.2 2.4L70 23.2l-2.4-6.2-6.2-2.4 6.2-2.4z" class="f-ac"/></svg><div><b>Claude가 초안을 씁니다</b><span>제안서·강의안 초안을 작성해 Slack에 게시</span></div></li>
+              <li><svg viewBox="0 0 88 64" aria-hidden="true" focusable="false"><rect x="8" y="8" width="34" height="20" rx="8" class="f-bg k-ink"/><rect x="14" y="16" width="22" height="4" rx="2" class="f-line"/><rect x="46" y="36" width="34" height="20" rx="8" class="f-ac"/><rect x="52" y="44" width="22" height="4" rx="2" class="f-on"/><path d="M48 14h14a8 8 0 0 1 8 8v8" class="k-ac nofill"/><path d="M66 26l4 5 4-5" class="k-ac nofill"/><path d="M40 50H26a8 8 0 0 1-8-8v-8" class="k-ac nofill"/><path d="M14 38l4-5 4 5" class="k-ac nofill"/></svg><div><b>댓글로 고칩니다</b><span>대표가 의견을 달면 초안을 다시 작성</span></div></li>
+            </ol>
+            <figcaption>문의가 들어와 초안이 나오기까지, 대표가 쓰는 순서</figcaption>
           </figure>
           <div>
             <h3>제안 업무 자동화 — AI 교육·컨설팅 회사</h3>
